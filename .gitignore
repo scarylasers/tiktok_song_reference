@@ -1,0 +1,5 @@
+# Ignore virtual environment and editor files
+.venv/
+.idea/
+__pycache__/
+*.pyc
