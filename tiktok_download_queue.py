@@ -87,15 +87,10 @@ def add_links_to_queue(links):
             writer.writerow([link, "Pending"])
 
 
-@app.route("/", methods=["GET", "POST"])
-@auth.login_required
-def queue_manager():
-    message = None
-    if request.method == "POST":
-        links = request.form["links"].strip().splitlines()
-        if links:
-            add_links_to_queue(links)
-            message = "Links added to the queue!"
+@app.route("/test")
+def test():
+    return "The app is running on Heroku!"
+
 
     queued_links = read_queue()
     return render_template_string(HTML_TEMPLATE, message=message, queued_links=queued_links)
